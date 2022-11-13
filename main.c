@@ -25,7 +25,7 @@ int main()
 
     /* ----- INIT VARIABLES ----- */
     // Field init
-    float field[HEIGHT][WIDTH], old_field[HEIGHT][WIDTH];                       // Initiate arrays here
+    float field[HEIGHT][WIDTH], old_field[HEIGHT][WIDTH];                           // Initiate arrays here
     for (int i=1;i<HEIGHT;i++)                                                      // Sets all values for field and old_field to 0
     {
         for(int j=1;j<WIDTH;j++)
@@ -34,24 +34,26 @@ int main()
             old_field[i][j]=0.0f;
         };
     };
-    field[HEIGHT/2][WIDTH/2]=10.0f;                                             // Sets middle value to 10
+
+    field[HEIGHT/2][WIDTH/2]=10.0f;                                                 // Sets middle value to 10
     
     // While counter
-    int whileCount = 1;
+    int iteration = 1;
 
 
 
     /* ----- MAIN LOOP ----- */
     while (1)
     {
-        printf("While Loop Count: %d\n", whileCount);
-        printArray(field);
-        printf("\n\n");
+        // Field print
+        printf("While Loop Count: %d\n", iteration);                                // Helps keep track of field iteration
+        printArray(field);                                                          // Prints the current field
+        printf("\n\n");                                                             // Spaces out lines
 
         
-        whileCount++;
+        iteration++;
 
-        Sleep(1000);
+        Sleep(1000);                                                                // Adds a delay between printing iterations
     }
 
     return 0;
@@ -69,15 +71,15 @@ void printArray(float arr[HEIGHT][WIDTH])                                       
         {
             if (j != 1)
             {
-                printf("\t");
+                printf("\t");                                                       // Ensures that the spaces are constant between brackets and values
             }
-            if (arr[i][j]<10)
+            if (arr[i][j]<10)                                                       // Makes X.X become XX.X if it was't
             {
                 printf("0%2.1f", arr[i][j]);
             }
             else
             {
-                printf("%2.1f", arr[i][j]);
+                printf("%2.1f", arr[i][j]);                                         // Leave stuff to normal
             }
             
         }
